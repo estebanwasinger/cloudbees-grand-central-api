@@ -1,0 +1,31 @@
+{
+  "first_name": "firstNAme",
+  "last_name": "lastName",
+  "name": "someUserName",
+  "id": "98328198012989089803189012",
+  "email": "some.email@gmail.com",
+  "tos": true,
+  "tos_accepted_at": null,
+  "account": "account-name",
+  "api_key": "h43h243h243hb",
+  "accounts": [
+    {
+      "name": "userfortesting",
+      "company": "SomeCompany",
+      "roles": [
+        "admin"
+      ],
+      "custom_roles": [],
+      "suspended": false,
+      "cancelled": null,
+      "tags": {
+        "system.ui": "console"
+      },
+      "max_users": 3,
+      "has_no_users_limit": false
+    }
+  ],
+  "ssh_keys": [],
+  "suspended": false,
+  "secret_key": "h43h324h32hj3jhk4hj322j434hj32hjk"
+}

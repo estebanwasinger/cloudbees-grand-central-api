@@ -1,0 +1,107 @@
+#%RAML 0.8
+title: CloudBees Grand Central API
+version: 2.0
+baseUri: https://grandcentral.cloudbees.com/api/v2/
+
+securitySchemes:
+  - basic:
+      type: Basic Authentication
+      description: This basic auth is not to be used with classic Username and password from CloudBees, this Basic Authentication needs to be
+        used with the API Key as username and API Secret as password.
+
+/users:
+  get:
+    description: Resource to verify the existence of a user registered in CloudBees
+    queryParameters:
+      email:
+        description: Email of the user to verify the existence
+    responses:
+      200:
+        description: If exist
+      404:
+        description: If not exist
+  head:
+    description: Resource to verify the existence of a user registered in CloudBees
+    queryParameters:
+      email:
+        description: Email of the user to verify the existence
+    responses:
+      200:
+        description: If exist
+      404:
+        description: If not exist
+  options:
+    description: Resource to verify the existence of a user registered in CloudBees
+    queryParameters:
+      email:
+        description: Email of the user to verify the existence
+    responses:
+      200:
+        description: If exist
+      404:
+        description: If not exist
+
+  securedBy: [basic]
+  /self:
+    get:
+      description: Retrieves information about the current account.
+      queryParameters:
+        account_subscriptions:
+          type: boolean
+          required: false
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/get-users-self.json
+
+securedBy: [basic]
+/accounts/{account-name}:
+  get:
+    description: Get info about the given account.
+  /invoices:
+    description: ?
+    get:
+  /users:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/get-accounts-accountName-users.json
+
+      post:
+        description: |
+          This gives the capability of add new users to the the account. This resource can give access to already existant users or create new ones.
+
+          To only give access, the body of the POST request:
+          {
+            "role": "user",
+            "email": "estebanwasinger@gmail.com",
+            "first_name": "Esteban"
+          }
+
+          To create a new user, the body of the POST request should carry all the following data:
+          {
+            "role": "user",
+            "email": "some.email@gmail.com",
+            "first_name": "firstName",
+            "last_name": "lastName",
+            "name": "username",
+            "password": "thePassword"
+          }
+
+        body:
+          application/json:
+            example: |
+              {
+                "role": "user",
+                "email": "estebanwasinger@gmail.com",
+                "first_name": "Esteban"
+              }
+
+      /{user-id}:
+        delete:
+          responses:
+            202:
+              description: If the deletion is accepted correctly

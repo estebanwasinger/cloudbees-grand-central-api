@@ -1,0 +1,18 @@
+[
+  {
+    "first_name": "firstName",
+    "last_name": "lastName",
+    "name": "user.name",
+    "id": "JHJHKJHKJHKJH43232HJ",
+    "email": "some.email@gmail.com",
+    "tos": false,
+    "tos_accepted_at": null,
+    "account": "account-name",
+    "api_key": "HJJHJK32423",
+    "ssh_keys": [],
+    "suspended": false,
+    "roles": [
+      "user"
+    ]
+  }
+]
